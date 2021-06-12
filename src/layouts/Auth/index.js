@@ -4,11 +4,10 @@ import { Layout } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
 import classNames from 'classnames'
 import Sidebar from 'components/cleanui/layout/Sidebar'
-import SupportChat from 'components/cleanui/layout/SupportChat'
+// import SupportChat from 'components/cleanui/layout/SupportChat'
 import style from './style.module.scss'
 
 const mapStateToProps = ({ settings }) => ({
-  logo: settings.logo,
   isGrayTopbar: settings.isGrayTopbar,
   isCardShadow: settings.isCardShadow,
   isSquaredBorders: settings.isSquaredBorders,
@@ -18,7 +17,6 @@ const mapStateToProps = ({ settings }) => ({
 
 const AuthLayout = ({
   children,
-  logo,
   isGrayTopbar,
   isCardShadow,
   isSquaredBorders,
@@ -29,7 +27,7 @@ const AuthLayout = ({
     <Layout>
       <Layout.Content>
         <Sidebar />
-        <SupportChat />
+        {/* <SupportChat /> */}
         <div
           className={classNames(`${style.container}`, {
             cui__layout__squaredBorders: isSquaredBorders,
@@ -50,9 +48,14 @@ const AuthLayout = ({
           >
             <div className={style.logoContainer}>
               <div className={style.logo}>
-                <img src="resources/images/logo.svg" className="mr-2" alt="Clean UI" />
-                <div className={style.name}>{logo}</div>
-                {logo === 'Clean UI Pro' && <div className={style.descr}>React</div>}
+                <img
+                  src="resources/images/logo.svg"
+                  className="mr-2"
+                  alt="Tapify"
+                  style={{ height: '150%' }}
+                />
+                {/* <div className={style.name}>{logo}</div> */}
+                {/* {logo === 'Clean UI Pro' && <div className={style.descr}>React</div>} */}
               </div>
             </div>
             <div className="d-none d-sm-block">
@@ -89,7 +92,7 @@ const AuthLayout = ({
               </li>
             </ul>
             <div className="text-center">
-              Copyright © 2017-2020 Mdtk Soft |{' '}
+              Copyright © 2021 Tapify Cloud |{' '}
               <a href="https://www.mediatec.org/privacy" target="_blank" rel="noopener noreferrer">
                 Privacy Policy
               </a>

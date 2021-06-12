@@ -196,7 +196,7 @@ const AdvancedFormExamples = () => {
               <div className="col-12">
                 <Form.Item valuePropName="checked" name="confirm3">
                   <Checkbox className="text-uppercase">
-                    I CONSENT TO HAVING MDTK SOFT COLLECT MY PERSONAL DETAILS.
+                    I CONSENT TO HAVING TAPIFY CLOUD COLLECT MY PERSONAL DETAILS.
                   </Checkbox>
                 </Form.Item>
                 <Form.Item name="confirm4">

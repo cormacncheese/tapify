@@ -8,7 +8,7 @@ import Breadcrumbs from 'components/cleanui/layout/Breadcrumbs'
 import Menu from 'components/cleanui/layout/Menu'
 import Footer from 'components/cleanui/layout/Footer'
 import Sidebar from 'components/cleanui/layout/Sidebar'
-import SupportChat from 'components/cleanui/layout/SupportChat'
+// import SupportChat from 'components/cleanui/layout/SupportChat'
 
 const mapStateToProps = ({ settings }) => ({
   isContentMaxWidth: settings.isContentMaxWidth,
@@ -45,7 +45,7 @@ const MainLayout = ({
         })}
       >
         <Sidebar />
-        <SupportChat />
+        {/* <SupportChat /> */}
         <Menu />
         <Layout>
           <Layout.Header

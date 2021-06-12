@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Switch, Radio, Select, Tooltip, Slider, Input } from 'antd'
 import classNames from 'classnames'
-import { debounce } from 'lodash'
+// import { debounce } from 'lodash'
 import style from './style.module.scss'
 
 const mapStateToProps = ({ settings }) => ({
@@ -25,7 +25,7 @@ const mapStateToProps = ({ settings }) => ({
   routerAnimation: settings.routerAnimation,
   locale: settings.locale,
   theme: settings.theme,
-  primaryColor: settings.primaryColor,
+  // primaryColor: settings.primaryColor,
   leftMenuWidth: settings.leftMenuWidth,
   logo: settings.logo,
 })
@@ -50,20 +50,20 @@ const Sidebar = ({
   routerAnimation,
   locale,
   theme,
-  primaryColor,
+  // primaryColor,
   leftMenuWidth,
   logo,
 }) => {
-  const [defaultColor] = useState('#4b7cf3')
+  // const [defaultColor] = useState('#4b7cf3')
 
-  const selectColor = debounce(color => {
-    dispatch({
-      type: 'settings/SET_PRIMARY_COLOR',
-      payload: {
-        color,
-      },
-    })
-  }, 200)
+  // const selectColor = debounce(color => {
+  //   dispatch({
+  //     type: 'settings/SET_PRIMARY_COLOR',
+  //     payload: {
+  //       color,
+  //     },
+  //   })
+  // }, 200)
 
   const setTheme = nextTheme => {
     dispatch({
@@ -81,14 +81,14 @@ const Sidebar = ({
     })
   }
 
-  const resetColor = () => {
-    dispatch({
-      type: 'settings/SET_PRIMARY_COLOR',
-      payload: {
-        color: defaultColor,
-      },
-    })
-  }
+  // const resetColor = () => {
+  //   dispatch({
+  //     type: 'settings/SET_PRIMARY_COLOR',
+  //     payload: {
+  //       color: defaultColor,
+  //     },
+  //   })
+  // }
 
   const changeSetting = (setting, value) => {
     dispatch({
@@ -423,7 +423,7 @@ const Sidebar = ({
           </div>
         </PerfectScrollbar>
       </div>
-      <Tooltip title="Settings" placement="left">
+      {/* <Tooltip title="Settings" placement="left">
         <a
           role="button"
           tabIndex="0"
@@ -437,7 +437,7 @@ const Sidebar = ({
         >
           <i className="fe fe-settings" />
         </a>
-      </Tooltip>
+      </Tooltip> */}
       <Tooltip title="Switch Dark / Light Theme" placement="left">
         <a
           role="button"
@@ -447,14 +447,14 @@ const Sidebar = ({
           }}
           onKeyPress={() => setTheme(theme === 'default' ? 'dark' : 'default')}
           onClick={() => setTheme(theme === 'default' ? 'dark' : 'default')}
-          style={{ bottom: 'calc(50% + 60px)' }}
+          style={{ bottom: 'calc(50% + 0px)' }}
           className={style.cui__sidebar__toggleButton}
         >
           {theme === 'default' && <i className="fe fe-moon" />}
           {theme !== 'default' && <i className="fe fe-sun" />}
         </a>
       </Tooltip>
-      <Tooltip title="Set Primary Color" placement="left">
+      {/* <Tooltip title="Set Primary Color" placement="left">
         <a
           style={{ bottom: 'calc(50%)' }}
           className={`${style.cui__sidebar__toggleButton} ${style.color} ${
@@ -480,7 +480,7 @@ const Sidebar = ({
           />
           <i className="fe fe-package" />
         </a>
-      </Tooltip>
+      </Tooltip> */}
       <Tooltip title="Documentation" placement="left">
         <a
           href="https://docs.cleanuitemplate.com"

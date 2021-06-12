@@ -9,7 +9,6 @@ import style from './style.module.scss'
 
 const mapStateToProps = ({ menu, settings, user }) => ({
   menuData: menu.menuData,
-  logo: settings.logo,
   menuColor: settings.menuColor,
   role: user.role,
 })
@@ -19,7 +18,6 @@ const MenuTop = ({
   location: { pathname },
 
   menuColor,
-  logo,
   role,
 }) => {
   const [selectedKeys, setSelectedKeys] = useState(store.get('app.menu.selectedKeys') || [])
@@ -131,9 +129,14 @@ const MenuTop = ({
     >
       <div className={style.logoContainer}>
         <div className={style.logo}>
-          <img src="resources/images/logo.svg" className="mr-2" alt="Clean UI" />
-          <div className={style.name}>{logo}</div>
-          {logo === 'Clean UI Pro' && <div className={style.descr}>React</div>}
+          <img
+            src="resources/images/logo.svg"
+            className="mr-2"
+            alt="Tapify"
+            style={{ height: '150%' }}
+          />
+          {/* <div className={style.name}>{logo}</div> */}
+          {/* {logo === 'Clean UI Pro' && <div className={style.descr}>React</div>} */}
         </div>
       </div>
       <div className={style.navigation}>

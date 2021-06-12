@@ -16,7 +16,6 @@ const mapStateToProps = ({ menu, settings, user }) => ({
   isMenuShadow: settings.isMenuShadow,
   leftMenuWidth: settings.leftMenuWidth,
   menuColor: settings.menuColor,
-  logo: settings.logo,
   role: user.role,
 })
 
@@ -31,7 +30,6 @@ const MenuLeft = ({
   isMenuShadow,
   leftMenuWidth,
   menuColor,
-  logo,
   role,
 }) => {
   const [selectedKeys, setSelectedKeys] = useState(store.get('app.menu.selectedKeys') || [])
@@ -190,9 +188,12 @@ const MenuLeft = ({
       >
         <div className={style.logoContainer}>
           <div className={style.logo}>
-            <img src="resources/images/logo.svg" className="mr-2" alt="Clean UI" />
-            <div className={style.name}>{logo}</div>
-            {logo === 'Clean UI Pro' && <div className={style.descr}>React</div>}
+            <img
+              src="resources/images/logo.svg"
+              className="mr-2"
+              alt="Tapify"
+              style={{ height: '150%' }}
+            />
           </div>
         </div>
         <PerfectScrollbar>
