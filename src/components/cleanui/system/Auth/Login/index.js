@@ -40,12 +40,12 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
           <strong>Welcome to {logo}</strong>
         </h1>
         <p>
-          Pluggable enterprise-level application framework.
+          Build the future.
           <br />
-          An excellent front-end solution for web applications built upon Ant Design.
-          <br />
+          Plug and play next generation apps to automate and grow your business.
+          {/* <br />
           Credentials for testing purposes - <strong>demo@sellpixels.com</strong> /{' '}
-          <strong>demo123</strong>
+          <strong>demo123</strong> */}
         </p>
       </div>
       <div className={`card ${style.container}`}>
@@ -54,17 +54,17 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
         </div>
         <div className="mb-4">
           <Radio.Group onChange={e => changeAuthProvider(e.target.value)} value={authProvider}>
-            <Radio value="firebase">Firebase</Radio>
-            <Radio value="jwt">JWT</Radio>
+            {/* <Radio value="firebase">Firebase</Radio> */}
+            {/* <Radio value="jwt">JWT</Radio> */}
             <Tooltip title="Read Docs Guide">
-              <Radio value="Auth0" disabled>
+              {/* <Radio value="Auth0" disabled>
                 Auth0
               </Radio>
             </Tooltip>
             <Tooltip title="Read Docs Guide">
               <Radio value="Strapi" disabled>
                 Strapi
-              </Radio>
+              </Radio> */}
             </Tooltip>
           </Radio.Group>
         </div>

@@ -306,6 +306,11 @@ const routes = [
     Component: lazy(() => import('pages/auth/500')),
     exact: true,
   },
+  {
+    path: '/auth/coming-soon',
+    Component: lazy(() => import('pages/auth/coming-soon')),
+    exact: true,
+  },
 ]
 
 const mapStateToProps = ({ settings }) => ({

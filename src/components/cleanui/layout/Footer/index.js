@@ -11,7 +11,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className={style.logo}
         >
-          SELLPIXELS
+          tapify cloud
           <span />
         </a>
         <br />

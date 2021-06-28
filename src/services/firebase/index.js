@@ -4,12 +4,14 @@ import 'firebase/auth'
 import 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBJVhr2WZshEGR7egcxoygQIphKOkKVIYQ',
-  authDomain: 'sellpixels-7d5d4.firebaseapp.com',
-  databaseURL: 'https://sellpixels-7d5d4.firebaseio.com',
-  projectId: 'sellpixels-7d5d4',
-  storageBucket: 'cleanui-72a42.appspot.com',
-  messagingSenderId: '338219933237',
+  apiKey: 'AIzaSyC_fjxECWEdzoynKnYsIhq2Uy6qmYohSus',
+  authDomain: 'tapify.firebaseapp.com',
+  databaseURL: 'https://tapify-default-rtdb.firebaseio.com',
+  projectId: 'tapify',
+  storageBucket: 'tapify.appspot.com',
+  messagingSenderId: '550874717833',
+  appId: '1:550874717833:web:b63fb201e24f517af8f058',
+  measurementId: 'G-4BC2HX318K',
 }
 
 firebase.initializeApp(firebaseConfig)
@@ -63,6 +65,7 @@ export async function currentAccount() {
         userLoaded = true
         unsubscribe()
         const getUserData = async () => {
+          console.log('user: ', user)
           if (user) {
             const userFields = await firebaseDatabase
               .ref('users')

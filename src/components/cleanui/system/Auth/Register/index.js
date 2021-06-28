@@ -26,8 +26,7 @@ const Register = ({ dispatch, user }) => {
         </div>
         <div className="mb-4">
           <p>
-            And start spending more time on your projects and less time managing your
-            infrastructure.
+            And start spending more time on your growth and less time managing your infrastructure.
           </p>
         </div>
         <Form
