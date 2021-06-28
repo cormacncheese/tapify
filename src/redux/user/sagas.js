@@ -90,14 +90,17 @@ export function* LOAD_CURRENT_ACCOUNT() {
   const { authProvider } = yield select(state => state.settings)
   const response = yield call(mapAuthProviders[authProvider].currentAccount)
   if (response) {
-    const { id, email, name, avatar, role } = response
+    console.log('RES: ', response)
+    const { id, email, name, photoURL, role } = response
+    console.log('photoUrl: ', photoURL)
+
     yield put({
       type: 'user/SET_STATE',
       payload: {
         id,
         name,
         email,
-        avatar,
+        avatar: photoURL,
         role,
         authorized: true,
       },

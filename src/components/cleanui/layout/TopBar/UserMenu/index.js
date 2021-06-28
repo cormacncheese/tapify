@@ -8,6 +8,7 @@ import styles from './style.module.scss'
 const mapStateToProps = ({ user }) => ({ user })
 
 const ProfileMenu = ({ dispatch, user }) => {
+  console.log('USER: ', user)
   const [count, setCount] = useState(7)
 
   const logout = e => {
@@ -74,7 +75,13 @@ const ProfileMenu = ({ dispatch, user }) => {
     <Dropdown overlay={menu} trigger={['click']} onVisibleChange={addCount}>
       <div className={styles.dropdown}>
         <Badge count={count}>
-          <Avatar className={styles.avatar} shape="square" size="large" icon={<UserOutlined />} />
+          <Avatar
+            className={styles.avatar}
+            src={user.avatar}
+            shape="circle"
+            size="medium"
+            icon={<UserOutlined />}
+          />
         </Badge>
       </div>
     </Dropdown>

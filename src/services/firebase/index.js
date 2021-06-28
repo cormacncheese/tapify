@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import { notification } from 'antd'
 import 'firebase/auth'
 import 'firebase/database'
+import 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC_fjxECWEdzoynKnYsIhq2Uy6qmYohSus',
@@ -17,6 +18,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 export const firebaseAuth = firebase.auth()
 export const firebaseDatabase = firebase.database()
+export const firestoreDatabase = firebase.firestore()
 
 export async function login(email, password) {
   return firebaseAuth
@@ -35,7 +37,39 @@ export async function register(email, password, name) {
     .createUserWithEmailAndPassword(email, password)
     .then(response => {
       if (response.user) {
-        const { uid } = response.user
+        const { uid, phoneNumber } = response.user
+
+        response.user
+          .updateProfile({
+            photoURL:
+              'https://firebasestorage.googleapis.com/v0/b/tapify.appspot.com/o/avatars%2Fd3a5a702f01c2c290e5bcb4ea5043033.jpeg?alt=media&token=2673b3d3-9ad2-4525-a981-4a7df84fa60e',
+          })
+          .then(() => {
+            console.log('firebase auth update successful')
+          })
+          .catch(error => {
+            console.log('firebase auth user update failed: ', error)
+          })
+
+        firestoreDatabase
+          .collection('users')
+          .doc(uid)
+          .set({
+            id: uid,
+            name,
+            role: 'admin',
+            email,
+            phoneNumber,
+            avatar:
+              'https://firebasestorage.googleapis.com/v0/b/tapify.appspot.com/o/avatars%2Fd3a5a702f01c2c290e5bcb4ea5043033.jpeg?alt=media&token=2673b3d3-9ad2-4525-a981-4a7df84fa60e',
+          })
+          .then(docRef => {
+            console.log('Document written with ID: ', docRef.id)
+          })
+          .catch(error => {
+            console.error('Error adding document: ', error)
+          })
+
         firebaseDatabase
           .ref('users')
           .child(uid)
@@ -65,7 +99,6 @@ export async function currentAccount() {
         userLoaded = true
         unsubscribe()
         const getUserData = async () => {
-          console.log('user: ', user)
           if (user) {
             const userFields = await firebaseDatabase
               .ref('users')
